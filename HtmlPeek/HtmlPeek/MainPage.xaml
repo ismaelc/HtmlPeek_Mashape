@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+	xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+	x:Class="HtmlPeek.MainPage"
+	FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	FontSize="{StaticResource PhoneFontSizeNormal}"
+	Foreground="{StaticResource PhoneForegroundBrush}"
+	SupportedOrientations="Portrait" Orientation="Portrait"
+	shell:SystemTray.IsVisible="True" xmlns:my1="clr-namespace:Google.AdMob.Ads.WindowsPhone7.WPF;assembly=Google.AdMob.Ads.WindowsPhone7">
+
+	<!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" MinHeight="131"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<!--TitlePanel contains the name of the application and page title-->
+		<StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0,17,0,15">
+			<TextBlock x:Name="ApplicationTitle" Text="HTML PEEK ver 0.2" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0,12,2"/>
+			<Border BorderThickness="1" Height="10">
+                <ProgressBar Style="{StaticResource PerformanceProgressBar}" x:Name="progressUrl" Height="10" IsIndeterminate="True" Margin="0,0,-2,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+			</Border>
+			<TextBox LostFocus="textBoxUrl_LostFocus" GotFocus="textBoxUrl_GotFocus" x:Name="textBoxUrl" Text="http://" KeyUp="textBoxUrl_KeyUp" InputScope="Url"/>
+		</StackPanel>
+		<Canvas x:Name="ContentPanel" HorizontalAlignment="Left" Grid.Row="1" >
+<!--<ScrollViewer HorizontalContentAlignment="Stretch" HorizontalScrollBarVisibility="Visible">
+				<TextBlock x:Name="textBlockHtmlSource" Text="Please paste a URL in the box above.." ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+			</ScrollViewer>-->
+			<TextBlock TextWrapping="Wrap" Text="Paste URL above and press &quot;-&gt;&quot;" Canvas.Left="10" Width="288"/>
+			<phone:WebBrowser 
+                              IsScriptEnabled="True" 
+                              Height="550" 
+                              x:Name="webBrowser" 
+                              Width="480" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed" />
+			<Image x:Name="imgCloud" Height="550" Width="480"/>
+			<TextBlock x:Name="txtBitly" TextWrapping="Wrap" Text="Bitly link" Canvas.Top="576"/>
+            <!--my1:BannerAd  AdUnitID="a14d806b5fed5f1" HorizontalAlignment="Center" x:Name="bannerAd1" VerticalAlignment="Top" Canvas.Top="550" /> -->
+            <!--<my:adMobRenderer PublisherID="a14d6fced3dc60f" HorizontalAlignment="Left" x:Name="adMobRenderer1" VerticalAlignment="Top" Visibility="Visible" Margin="0,570,0,0" />-->
+		</Canvas>
+        
+        <!--ContentPanel - place additional content here-->
+	</Grid>
+</phone:PhoneApplicationPage>

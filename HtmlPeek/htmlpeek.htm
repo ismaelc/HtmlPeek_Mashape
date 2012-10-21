@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>HtmlPeek</title>
+    <script type="text/javascript">
+        function DataReceivedFromPhoneApp(input) {
+            textReceived.innerHTML = input;
+            return true;
+        }
+
+        function SendDataToPhoneApp() {
+            window.external.Notify("Go");
+        }
+    </script>
+
+</head>
+<body bgcolor="#000000" onload="SendDataToPhoneApp()">
+<div style="color:white" id="textReceived" />
+</body>
+</html>
